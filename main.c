@@ -16,7 +16,6 @@ struct Node {
     Node* node;
     instead of redundant writing 
     struct Node* node;
-
     for simplicity, you can say that typedef replaces all instances
     of "Node" in the code to "struct Node"
 */
@@ -26,7 +25,6 @@ typedef struct Node Node;
 /*
     A linked list is collection of nodes, and each node conatins data, 
     as well as a pointer to another node
-
     LinkedList structure stores the current status of a linked list
 */
 
@@ -67,16 +65,12 @@ LinkedList createList() {
     adds a node at the end of linked list with the data provided
     Also changes the end pointer of linkedlist to the newly added node
     Increases the size of linked list
-
     Linked list before this operation
-
       Start                        End
     *********     *********     *********
     * Node1 * ==> * Node2 * ==> * Node3 *
     *********     *********     *********
-
     Linked list after this oepration
-
       Start                                      End
     *********     *********     *********     *********
     * Node1 * ==> * Node2 * ==> * Node3 * ==> * Node4 *
@@ -99,36 +93,25 @@ void push_back(LinkedList* const list, int data) {
 /*
     removes a node from the linked list
     if index == 0, changes start pointer of linkedlist to next node
-
     index can be any value between 0 to list.size
-
     if pop is used as pop(&list, 0), then below is the representation
-
     Before the operation
-
       Start                        End
     *********     *********     *********
     * Node1 * ==> * Node2 * ==> * Node3 *
     *********     *********     *********
-
     After the operation
-
      deleted        Start         End
     ---------     *********     *********
     | Node1 |     * Node2 * ==> * Node3 *
     ---------     *********     *********
-
     if pop is used as pop(&list, 1), then below is the representation
-
     Before the operation
-
       Start                        End
     *********     *********     *********
     * Node1 * ==> * Node2 * ==> * Node3 *
     *********     *********     *********
-
     After the operation
-
       Start        deleted         End
     *********     ---------     *********
     * Node1 *     | Node2 |     * Node3 *
@@ -184,7 +167,7 @@ int get(LinkedList* const list, const unsigned int index) {
     Safely destroys all the nodes present in linkedlist
 */
 
-void destroyList(LinkedList* const list) {
+void destroyList(LinkedList* list) {
 
     for(Node* cur = list->start; cur != NULL; ) {
         Node* tmp = cur;
@@ -194,6 +177,8 @@ void destroyList(LinkedList* const list) {
     list->start = NULL;
     list->end = NULL;
     list->size = 0;
+
+    list = NULL;
 }
 
 /*
