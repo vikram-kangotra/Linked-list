@@ -30,7 +30,7 @@ struct Node {
 typedef struct {
     Node* start;
     Node* end;
-    unsigned int size;
+    unsigned int length;
 } LinkedList;
 
 /*
@@ -56,14 +56,14 @@ LinkedList createList() {
     LinkedList list;
     list.start = NULL;
     list.end = NULL;
-    list.size = 0;
+    list.length = 0;
     return list;
 }
 
 /*
     adds a node at the end of linked list with the data provided
     Also changes the end pointer of linkedlist to the newly added node
-    Increases the size of linked list
+    Increases the length of linked list
     Linked list before this operation
       Start                        End
     *********     *********     *********
@@ -86,13 +86,13 @@ void push_back(LinkedList* const list, int data) {
         list->end = list->end->next;
     }
 
-    ++list->size;
+    ++list->length;
 }
 
 /*
     removes a node from the linked list
     if index == 0, changes start pointer of linkedlist to next node
-    index can be any value between 0 to list.size
+    index can be any value between 0 to list.length
     if pop is used as pop(&list, 0), then below is the representation
     Before the operation
       Start                        End
@@ -121,7 +121,7 @@ void push_back(LinkedList* const list, int data) {
 */
 
 void pop(LinkedList* const list, const unsigned int index) {
-    if(index >= list->size) {
+    if(index >= list->length) {
         printf("Error: out of range");
         exit(1);
     }
@@ -139,18 +139,18 @@ void pop(LinkedList* const list, const unsigned int index) {
         free(tmp);
     }
 
-    --list->size;
+    --list->length;
 }
 
 /*
     returns the data stored in the linkedlist as index "index"
-    index can be any value between 0 to list->size else an error 
+    index can be any value between 0 to list->length else an error 
     is thrown
 */
 
 int get(LinkedList* const list, const unsigned int index) {
 
-    if(index >= list->size) {
+    if(index >= list->length) {
         printf("Error: out of range");
         exit(1);
     }
@@ -175,7 +175,7 @@ void destroyList(LinkedList* list) {
     }
     list->start = NULL;
     list->end = NULL;
-    list->size = 0;
+    list->length = 0;
 
     list = NULL;
 }
@@ -185,7 +185,7 @@ void destroyList(LinkedList* list) {
 */
 
 void print(LinkedList* const list) {
-    for(int i=0; i<list->size; ++i) {
+    for(int i=0; i<list->length; ++i) {
         printf("%d ", get(list, i));
     }
 }
