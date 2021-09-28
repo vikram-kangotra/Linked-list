@@ -3,13 +3,8 @@
 
 /*
     Node is structure for individual data containers (that holds data)
-    it points to other nodes using next.
+    that it points to other nodes using next.
 */
-
-struct Node {
-    int data;
-    struct Node* next;
-};
 
 /*
     Used this definition which helps us to write things like this
@@ -21,6 +16,11 @@ struct Node {
 */
 
 typedef struct Node Node;
+
+struct Node {
+    int data;
+    struct Node* next;
+};
 
 /*
     A linked list is collection of nodes, and each node conatins data, 
