@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 /*
-    Node is structure for individual data containers (that holds data)
-    that it points to other nodes using next.
+    Node is a structure for individual data containers. It also holds
+    a pointer to other nodes.
 */
 
 /*
@@ -19,13 +19,12 @@ typedef struct Node Node;
 
 struct Node {
     int data;
-    struct Node* next;
+    Node* next;
 };
 
 /*
-    A linked list is collection of nodes, and each node conatins data, 
-    as well as a pointer to another node
-    LinkedList structure stores the current status of a linked list
+    A linked list is collection of nodes.
+    LinkedList structure stores the current status of a linked list.
 */
 
 typedef struct {
